@@ -13,8 +13,8 @@ const FlatListBasics = () => {
         console.log(response.data);
         //arreglo para tomar el nombre
         let dataTemp = [];
-        response.data.forEach(element => {
-          dataTemp.push({key:element.nombre})
+        response.data.forEach((element) => {
+          dataTemp.push({ key: element.nombre });
         });
         setData(dataTemp);
       })

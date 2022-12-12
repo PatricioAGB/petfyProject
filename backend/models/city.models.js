@@ -1,10 +1,10 @@
 const { Binary } = require("mssql");
 
 module.exports = (sequelize, Sequelize) => {
-  const Usuario = sequelize.define(
-    "usuario",
+  const Ciudad = sequelize.define(
+    "ciudad",
     {
-      idUsuario: {
+      idCiudad: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         require: true,
@@ -15,23 +15,13 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false,
         require: true,
       },
-      contrasena: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        require: true,
-      },
-      rol: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        defaultValue: "1",
-      },
     },
     {
-      tableName: "usuario",
+      tableName: "ciudad",
       timestamps: false,
       createdAt: false,
       updatedAt: false,
     }
   );
-  return Usuario;
+  return Ciudad;
 };
