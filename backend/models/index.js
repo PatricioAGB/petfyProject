@@ -10,5 +10,5 @@ const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.users = require("./user.model")(sequelize, Sequelize);
-db.city = require("./city.models")(sequelize, Sequelize);
+db.region = require("./region.model")(sequelize, Sequelize);
 module.exports = db;

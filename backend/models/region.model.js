@@ -2,9 +2,9 @@ const { Binary } = require("mssql");
 
 module.exports = (sequelize, Sequelize) => {
   const Ciudad = sequelize.define(
-    "ciudad",
+    "region",
     {
-      idCiudad: {
+      idRegion: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         require: true,
@@ -17,7 +17,7 @@ module.exports = (sequelize, Sequelize) => {
       },
     },
     {
-      tableName: "ciudad",
+      tableName: "region",
       timestamps: false,
       createdAt: false,
       updatedAt: false,

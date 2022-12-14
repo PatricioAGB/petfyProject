@@ -1,10 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const user = require('../controllers/users.controller')
-//crea usuarios
-router.post("/user",user.create );
-// retorna todos los usuarios
-router.get("/users",user.findAll)
+const usuario = require('../controllers/auth.controller')
+
+
+//ruta del login
+router.post("/login",usuario.login);
+//ruta del registro
+router.post("/register",usuario.register);
+
+
 
 
 

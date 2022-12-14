@@ -1,19 +1,22 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const account = require("./routes/account");
-const city = require("./routes/city");
+const regiones = require("./routes/region");
 const app = express();
 const cors = require("cors");
 app.use(cors());
 app.enable("trust proxy");
 app.use(express.json());
+require("dotenv").config();
+global.__basedir = __dirname;
+
 
 app.use(bodyParser.json());
 
 app.get("/", (req, res, next) => {
   res.send("Hola Mundo!");
 });
-app.use("/city", city);
+app.use("/region", regiones);
 app.use("/account", account);
 const PORT = 8080;
 
