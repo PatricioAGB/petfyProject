@@ -1,43 +1,37 @@
-const { Binary } = require("mssql");
 
 module.exports = (sequelize, Sequelize) => {
-  const Usuario = sequelize.define(
-    "usuario",
+  const User = sequelize.define(
+    "Username",
     {
-      idUsuario: {
+        idUsername: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         require: true,
         autoIncrement: true,
       },
-      email: {
+      Email: {
         type: Sequelize.STRING,
         allowNull:false,
         require:true,
       },
-      usuario: {
+      Contrasena: {
         type: Sequelize.STRING,
         allowNull: false,
         require: true,
       },
-      contrasena: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        require: true,
-      },
-      rol: {
+      Rol: {
         type: Sequelize.STRING,
         allowNull: false,
         require:true,
         defaultValue: "1",
       },
-      estado: {
+      Estado: {
         type: Sequelize.TINYINT,
         allowNull:false,
         require: true,
         defaultValue: 1,
       },
-      nombre: {
+      Nombre: {
         type: Sequelize.STRING,
         allowNull: false,
         require: true,
@@ -52,12 +46,12 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false,
         require: true,
       },
-      edad: {
+      Edad: {
         type: Sequelize.TINYINT, //no se si esta bien
         allowNull: false,
         require: true,
       },
-      genero: {
+      Genero: {
         type: Sequelize.STRING,
         allowNull: false,
         require: true,
@@ -69,11 +63,13 @@ module.exports = (sequelize, Sequelize) => {
       },
     },
     {
-      tableName: "usuario",
+      tableName: "Username",
       timestamps: false,
       createdAt: false,
       updatedAt: false,
     }
   );
-  return Usuario;
+
+
+  return User;
 };

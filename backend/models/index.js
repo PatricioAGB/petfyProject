@@ -9,6 +9,13 @@ const sequelize = new Sequelize(dbconfig.DB, dbconfig.USER, dbconfig.PASSWORD, {
 const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-db.users = require("./user.model")(sequelize, Sequelize);
-db.region = require("./region.model")(sequelize, Sequelize);
+db.User = require("./username.model")(sequelize, Sequelize);
+db.Region = require("./region.model")(sequelize, Sequelize);
+db.Provincia = require("./provincia.model")(sequelize,Sequelize);
+db.Pet = require("./pet.model")(sequelize,Sequelize);
+db.Publication = require("./publication.model")(sequelize,Sequelize);
+
+db.Publication.hasOne(db.Pet,{foreignKey:"idPet"});
+db.Publication.hasOne(db.User,{foreignKey:"idUsername"});
+
 module.exports = db;
