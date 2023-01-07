@@ -2,7 +2,7 @@ const db = require("../models");
 const Publication = db.Publication;
 const Pet = db.Pet;
 const User = db.User;
-
+// crear publicacion de mascota perdida
 exports.createPublication = async (req, res)=>{
   try {
     //TODO: Manejar la insercion en las otras tablas 
@@ -12,7 +12,7 @@ exports.createPublication = async (req, res)=>{
     res.status(500).send("Error creating publication");
   }
 }
-
+// busca la publicacion por usuario
 exports.findPublicationsByUserId = async (req, res)=>{
   try {
     const publications = await Publication.findAll({where:{userId:req.params.userId}});
@@ -21,7 +21,7 @@ exports.findPublicationsByUserId = async (req, res)=>{
     res.status(500).send("Error finding publications")
   }
 } 
-
+// buscar publicacion por la mascota
 exports.findPublicationsByPetId = async (req, res)=>{
   try {
     const publications = await Publication.findAll({ where:{userId:req.params.IdPet}});
@@ -30,7 +30,7 @@ exports.findPublicationsByPetId = async (req, res)=>{
     res.status(500).send("Error finding publications")
   }
 }
-
+// busca por el id de publicacion
 exports.findPublicationById =  async (req, res) =>{
   try {
     const publication = await Publication.findOne({where:{idPublication: req.params.publicationId}});
@@ -39,7 +39,7 @@ exports.findPublicationById =  async (req, res) =>{
     res.status(500).send("Error finding publication")
   }
 }
-
+// busca todo
 exports.findAll = async (req, res) => {
   try {
     const publications = await Publication.findAll({include:[Pet, User]});
@@ -50,7 +50,7 @@ exports.findAll = async (req, res) => {
   }
 };
 
-
+// actualizar datos de la publicación
 exports.updatePublication = async (req,res) =>{
   try {
     const updatedPublication = await Publication.update( {descripcion: req.body.Descripcion, ultimoLugarVista: req.body.Descripcion},{
@@ -65,7 +65,7 @@ exports.updatePublication = async (req,res) =>{
   }
 }
 
-
+// eliminar publicacion de forma logica
 exports.updatePublicationState = async (req,res) =>{
   try {
     
@@ -79,7 +79,7 @@ exports.updatePublicationState = async (req,res) =>{
     res.status(500).send("Error Updating State Publication")
   }
 }
-
+// elimina publicacion de forma fisica
 exports.deletePublication = async  (req,res) =>{
   try {
     await Publication.destroy({
